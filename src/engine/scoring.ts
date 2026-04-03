@@ -1,6 +1,6 @@
 // src/engine/scoring.ts
 import type { BaZi } from './bazi'
-import { getXiYongShen, countWuXing } from './bazi'
+import { getXiYongShen } from './bazi'
 import type { WuGeAnalysis } from './nameAnalysis'
 import { calculateMingLi21, getMingLiNumber } from './mingLi21Calc'
 import { DIGIT_WUXING, letterWuxing, getRelation } from '../data/wuxing'
@@ -98,7 +98,7 @@ function calcHarmonyScore(plate: string): { score: number; reason: string } {
   return { score, reason }
 }
 
-function calcShuLiScore(plate: string, wugeAnalysis: WuGeAnalysis): { score: number; reason: string } {
+function calcShuLiScore(_plate: string, wugeAnalysis: WuGeAnalysis): { score: number; reason: string } {
   const renGeLevel = wugeAnalysis.renGeShuLi.level
   const levelScore: Record<string, number> = { '大吉': 100, '吉': 80, '半吉': 60, '凶': 30, '大凶': 10 }
 

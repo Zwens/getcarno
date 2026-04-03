@@ -1,7 +1,6 @@
 // src/pages/selector.ts
 import { SHICHEN_OPTIONS } from '../data/tianganDizhi'
 import { PLATE_SEGMENTS, enumeratePlates } from '../data/plateSegments'
-import type { PlateSegment } from '../data/plateSegments'
 import { calculateBazi, countWuXing, getDayMaster, getXiYongShen } from '../engine/bazi'
 import type { BaZi } from '../engine/bazi'
 import { analyzeWuGe } from '../engine/nameAnalysis'
