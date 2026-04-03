@@ -224,6 +224,12 @@ body {
   box-shadow: 0 0 0 3px rgba(79, 109, 240, 0.1);
 }
 
+.date-picker-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0.5rem;
+}
+
 .form-radio-group { display: flex; gap: 1rem; }
 
 .form-radio { display: flex; align-items: center; gap: 0.5rem; cursor: pointer; color: var(--text-secondary); }

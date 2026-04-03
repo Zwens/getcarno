@@ -66,7 +66,20 @@ function renderStep1(): string {
         </div>
         <div class="form-group">
           <label class="form-label">出生日期</label>
-          <input type="date" class="form-input" id="input-date" />
+          <div class="date-picker-group">
+            <select class="form-select" id="input-year">
+              ${Array.from({ length: 100 }, (_, i) => {
+                const y = 2010 - i
+                return `<option value="${y}">${y}年</option>`
+              }).join('')}
+            </select>
+            <select class="form-select" id="input-month">
+              ${Array.from({ length: 12 }, (_, i) => `<option value="${i + 1}">${i + 1}月</option>`).join('')}
+            </select>
+            <select class="form-select" id="input-day">
+              ${Array.from({ length: 31 }, (_, i) => `<option value="${i + 1}">${i + 1}日</option>`).join('')}
+            </select>
+          </div>
         </div>
         <div class="form-group">
           <label class="form-label">出生时辰</label>
@@ -261,13 +274,12 @@ export function renderSelectorPage(): HTMLElement {
   setTimeout(() => {
     page.querySelector('#btn-analyze')!.addEventListener('click', () => {
       const name = (page.querySelector('#input-name') as HTMLInputElement).value.trim()
-      const dateStr = (page.querySelector('#input-date') as HTMLInputElement).value
+      const y = parseInt((page.querySelector('#input-year') as HTMLSelectElement).value)
+      const m = parseInt((page.querySelector('#input-month') as HTMLSelectElement).value)
+      const d = parseInt((page.querySelector('#input-day') as HTMLSelectElement).value)
       const shichen = parseInt((page.querySelector('#input-shichen') as HTMLSelectElement).value)
 
       if (!name) { alert('请输入姓名'); return }
-      if (!dateStr) { alert('请选择出生日期'); return }
-
-      const [y, m, d] = dateStr.split('-').map(Number)
       bazi = calculateBazi(y, m, d, shichen)
       wugeAnalysis = analyzeWuGe(name)
 
