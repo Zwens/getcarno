@@ -156,9 +156,12 @@ function renderStep2(page: HTMLElement) {
       </div>
     </div>
 
-    <button class="btn-primary" id="btn-to-step3" style="max-width:400px;margin:1.5rem auto 0;display:block;">
+    <div style="display:flex;gap:1rem;max-width:400px;margin:1.5rem auto 0;">
+      <button class="btn-secondary" id="btn-back-step1" style="flex:1;">返回修改</button>
+      <button class="btn-primary" id="btn-to-step3" style="flex:2;">
       下一步：选择号段
     </button>
+    </div>
   `
 
   const radarMount = container.querySelector('#radar-mount')!
@@ -289,7 +292,9 @@ export function renderSelectorPage(): HTMLElement {
 
     page.addEventListener('click', (e) => {
       const target = e.target as HTMLElement
-      if (target.id === 'btn-to-step3') {
+      if (target.id === 'btn-back-step1') {
+        showStep(page, 1)
+      } else if (target.id === 'btn-to-step3') {
         renderStep3(page)
         showStep(page, 3)
       } else if (target.id === 'btn-to-step4') {

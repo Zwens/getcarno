@@ -251,6 +251,23 @@ body {
 .btn-primary:hover { opacity: 0.9; }
 .btn-primary:active { transform: scale(0.98); }
 
+.btn-secondary {
+  padding: 0.85rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--accent-blue);
+  color: var(--text-primary);
+}
+
 .report-section {
   background: var(--bg-card);
   border: 1px solid var(--border-color);
